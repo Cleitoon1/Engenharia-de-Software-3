@@ -36,7 +36,7 @@ public class Model implements Subject{
 		}
 		return uniqueInstance;
 	}
-	
+	@Override
 	public ObjectSet<EducacaoMOD> getData(String link) throws JSONException{
 		final StringBuilder result = new StringBuilder();
         HttpURLConnection urlConnection = null;
@@ -85,28 +85,5 @@ public class Model implements Subject{
 	
 	public void fazerOrdenacao(){
 		c.comparar(l);
-	}
-	
-	@Override
-	public List<EducacaoMOD> getDados(String url, Boolean organizar, String campoOrganizavel, String ordem)
-			throws JSONException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public List<EducacaoMOD> getDadosAno(String url, int ano) throws JSONException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public List<EducacaoMOD> getDadosEstado(String url, String estado) throws JSONException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public List<EducacaoMOD> getDadosEstadoAno(String url, String estado, int ano) throws JSONException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
+	}	
 }

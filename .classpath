@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/Cleiton/Documents/GitHub/Engenha-de-Software-3/db4o-8.0.249.16098-all-java5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Cleiton/Documents/GitHub/Engenha-de-Software-3/org.json-20120521.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Cleiton/Documents/GitHub/Engenharia-de-Software-3/db4o-8.0.249.16098-all-java5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Cleiton/Documents/GitHub/Engenharia-de-Software-3/org.json-20120521.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

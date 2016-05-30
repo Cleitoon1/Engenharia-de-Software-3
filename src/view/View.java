@@ -47,12 +47,11 @@ public class View {
     	final JTextField Text1 = new JTextField( "http://api.pgi.gov.br/api/1/serie/257.json" );
     	JLabel Label2 = new JLabel("Organizar");
     	JLabel Label3 = new JLabel("Campo");
-    	JLabel Label4 = new JLabel("Sequencia");
-    	
+    	JLabel Label4 = new JLabel("Sequencia");   	
     	
     	final JComboBox<String> ComboOrganiza  = new JComboBox<String>();
-    	ComboOrganiza.addItem( "Sim" );
-    	ComboOrganiza.addItem( "Não" );
+    	ComboOrganiza.addItem( "Sim");
+    	ComboOrganiza.addItem( "Não");
     	
     	final JComboBox<String> ComboCampo  = new JComboBox<String>();
     	ComboCampo.addItem( "Ano" );
