@@ -22,6 +22,12 @@ import com.db4o.query.Query;*/
 import com.db4o.ObjectSet;
 import com.db4o.query.Query;
 
+import controller.CompAnoAsc;
+import controller.CompAnoDesc;
+import controller.CompEstadoAsc;
+import controller.CompEstadoDesc;
+import controller.CompValorAsc;
+import controller.CompValorDesc;
 import controller.Comparacoes;
 public class Model implements Subject{
 //	private List<EducacaoMOD> bd;
@@ -29,6 +35,11 @@ public class Model implements Subject{
 	private Comparacoes c;
 	ObjectContainer mediasIDEB = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), "mediasIDEB2.db4o");	
 	private static Model uniqueInstance;
+	
+	public Model()
+	{
+		
+	}
 	
 	public static Model getInstance(){
 		if(uniqueInstance == null){
@@ -86,4 +97,62 @@ public class Model implements Subject{
 	public void fazerOrdenacao(){
 		c.comparar(l);
 	}	
+	
+	@Override
+	public List<EducacaoMOD> exibirDados(String link, Boolean organizar, String campo, String ordem) throws JSONException
+    {
+    	Model mod = Model.getInstance();
+    	//System.out.println(organizar + " " + link + " " + campo +" "+ ordem);
+    	ObjectSet<EducacaoMOD> retorno = mod.getData(link);
+        for(EducacaoMOD e : retorno)
+        	mod.l.add(e);
+		if(organizar.equals(true))
+		{
+			if(ordem == "Asc")
+			{
+				if(campo == "Ano")
+				{
+			        mod.setOrdenacao(new CompAnoAsc());
+			        mod.fazerOrdenacao();	
+				}
+					
+				
+				if(campo == "Estado")
+				{
+			        mod.setOrdenacao(new CompEstadoAsc());
+			        mod.fazerOrdenacao();
+				}
+				else
+				{
+			        mod.setOrdenacao(new CompValorAsc());
+			        mod.fazerOrdenacao();
+				}
+			}
+			else
+			{
+				if(campo == "Ano")
+				{
+					mod.setOrdenacao(new CompAnoDesc());
+					mod.fazerOrdenacao();
+				}
+				if(campo == "Estado")
+				{
+					mod.setOrdenacao(new CompEstadoDesc());
+					mod.fazerOrdenacao();
+				}
+				else
+				{
+					mod.setOrdenacao(new CompValorDesc());
+					mod.fazerOrdenacao();
+				}
+			}  
+			//exibirLista(mod.l);
+			return mod.l;
+		}
+		else
+		{
+			//exibirLista(mod.l);
+			return mod.l;
+		}	
+    }
 }

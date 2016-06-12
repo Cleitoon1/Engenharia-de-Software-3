@@ -17,9 +17,6 @@ import javax.swing.ListSelectionModel;
 
 import org.json.JSONException;
 
-import com.db4o.ObjectSet;
-
-import facade.Facade;
 import model.EducacaoMOD;
 import model.Model;
 
@@ -29,7 +26,7 @@ public class View {
     static JFrame Formulario = new JFrame();
     static JList<Object> listaTela;
     static JScrollPane scrollpane;
-    static Facade f = new Facade();
+    static Model m = Model.getInstance();
 	
     public static void main(String[] args) {
     	createView();
@@ -44,7 +41,7 @@ public class View {
     	Painel.setLayout( null ); 
     	Formulario.add( Painel );
     	JLabel Label1 = new JLabel("Link");
-    	final JTextField Text1 = new JTextField( "http://api.pgi.gov.br/api/1/serie/257.json" );
+    	final JTextField Text1 = new JTextField( "http://www.json-generator.com/api/json/get/ckmQAotvPC?indent=2" );
     	JLabel Label2 = new JLabel("Organizar");
     	JLabel Label3 = new JLabel("Campo");
     	JLabel Label4 = new JLabel("Sequencia");   	
@@ -57,7 +54,6 @@ public class View {
     	ComboCampo.addItem( "Ano" );
     	ComboCampo.addItem( "Estado" );
     	ComboCampo.addItem( "Valor" );
-
     	
     	final JComboBox<String> ComboOrdem  = new JComboBox<String>();
     	ComboOrdem.addItem( "Asc" );
@@ -92,7 +88,7 @@ public class View {
         		else
         			organizar = false;
             	try {
-					exibirLista(f.exibirDados(link, organizar, campo, ordem));
+					exibirLista(m.exibirDados(link, organizar, campo, ordem));
 				} catch (JSONException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
