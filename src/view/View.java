@@ -43,7 +43,8 @@ public class View {
     	JLabel Label1 = new JLabel("Link");
     	final JTextField Text1 = new JTextField( "http://www.json-generator.com/api/json/get/ckmQAotvPC?indent=2" );
     	JLabel Label2 = new JLabel("Organizar");
-    	JLabel Label3 = new JLabel("Campo");
+    	JLabel Label3
+    	= new JLabel("Campo");
     	JLabel Label4 = new JLabel("Sequencia");   	
     	
     	final JComboBox<String> ComboOrganiza  = new JComboBox<String>();
